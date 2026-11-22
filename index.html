@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link rel="stylesheet" href="index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <img src="weather-app-main/assets/images/logo.svg" alt="" />
+      <select class="language-select" aria-label="Choose language">
+        <option value="en">English</option>
+        <option value="fa">فارسی</option>
+      </select>
+      <div class="units-container">
+        <button class="units-button" type="button">
+          <img src="weather-app-main/assets/images/icon-units.svg" alt="" />
+          Units
+          <span class="arrow">⌄</span>
+        </button>
+
+        <div class="units-dropdown">
+          <button class="switch-units">Switch to Imperial</button>
+
+          <div class="unit-group">
+            <p>Temperature</p>
+
+            <button
+              class="unit-option selected"
+              data-group="temperature"
+              data-value="celsius"
+            >
+              Celsius (°C)
+              <span>✓</span>
+            </button>
+
+            <button
+              class="unit-option"
+              data-group="temperature"
+              data-value="fahrenheit"
+            >
+              Fahrenheit (°F)
+            </button>
+          </div>
+
+          <div class="unit-group">
+            <p>Wind Speed</p>
+
+            <button
+              class="unit-option selected"
+              data-group="wind"
+              data-value="kmh"
+            >
+              km/h
+              <span>✓</span>
+            </button>
+
+            <button class="unit-option" data-group="wind" data-value="mph">
+              mph
+            </button>
+          </div>
+
+          <!-- Precipitation -->
+          <div class="unit-group">
+            <p>Precipitation</p>
+
+            <button
+              class="unit-option selected"
+              data-group="precipitation"
+              data-value="mm"
+            >
+              Millimeters (mm)
+              <span>✓</span>
+            </button>
+
+            <button
+              class="unit-option"
+              data-group="precipitation"
+              data-value="inch"
+            >
+              Inches (in)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- error handling part -->
+    <div class="error_message">
+      <div class="icon">
+        <img src="../weather-app-main/assets/images/icon-error.svg" alt="" />
+      </div>
+      <div class="error_title">Something went wrong</div>
+      <div class="error_msg">
+        We couldn't connnect to the server(API error).Please try again in a few
+        moments
+      </div>
+      <button class="retry">⟳ Retry</button>
+    </div>
+    <!-- ----------------- -->
+
+    <div class="main_container">
+      <div class="how_is_going">How is the sky looking today?</div>
+      <form class="search_city" id="form_search_city">
+        <div class="search_bar">
+          <img src="weather-app-main/assets/images/icon-search.svg" alt="" />
+          <input
+            type="text"
+            placeholder="Search a place"
+            class="js_search_input"
+            required
+          />
+        </div>
+        <div class="suggestions_container"></div>
+        <button type="submit">search</button>
+      </form>
+      <div class="error_city_not_found">
+        <h2>No search result found!</h2>
+      </div>
+      <div class="weather_info">
+        <div class="left_container">
+          <!-- handling loading -->
+          <div class="loading">
+            <div class="loading_dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>loading...</p>
+          </div>
+          <!-- --------------- -->
+          <div class="todays_weather"></div>
+          <div class="todays_others"></div>
+          <div class="daily_forecast_p">Daily forecast</div>
+          <div class="daily_forecast js_daily_forecast"></div>
+        </div>
+        <div class="right_container">
+          <div class="top_h">
+            <p>Hourly forecast</p>
+            <select class="week_day"></select>
+          </div>
+          <div class="button_h"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <a
+        href="https://www.linkedin.com/in/mohammad-asif-fahimi-441491381?originalSubdomain=af"
+        lang="fa"
+        >Asif fahimi</a
+      >
+    </div>
+    <script src="Scripts/language.js"></script>
+    <script type="module" src="index.js" defer></script>
+  </body>
+</html>
